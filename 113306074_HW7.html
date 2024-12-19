@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW5 Profile Page</title>
+    <link rel="stylesheet" href="113306074_HW7.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="photo-panel"></div>
+
+            <div class="name-container">
+                <p class="name"><strong>吳芊穎</strong></p>
+                <button id="edit-btn">Edit</button>
+            </div>
+
+            <div class="text-content">
+                <p><strong>ABOUT ME</strong><br><br>I am a freshman in the Department of Management Information Systems at National Chengchi University. I am very interested in studying programming and computer science fundamentals. I have experience in writing Java, HTML, CSS and C++.</p><br>
+                <p class="contact"><strong>CONTACT</strong><br><br>
+                <a href = "mailto:113306074@g.nccu.edu.tw">113306074@g.nccu.edu.tw</a>
+                </p><br>
+                <img src="005.png" alt="NCCU Logo">
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>2024 - now:</strong> National Chengchi University, Department of MIS</li>
+                    <li><strong>2022 - 2024:</strong> Taichung Girls' Senior High School</li>
+                    <li><strong>2019 - 2022:</strong> Developed interest in Computer Science</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Homework List</h2>
+                <ul>
+                    <li>HW1 - <a href="https://github.com/wqy125/HW1.git" target="_blank">https://github.com/wqy125/HW1.git</a></li>
+                    <li>HW2 - <a href="https://github.com/wqy125/HW2.git" target="_blank">https://github.com/wqy125/HW2.git</a></li>
+                    <li>HW3 - <a href="https://github.com/wqy125/HW3.git" target="_blank">https://github.com/wqy125/HW3.git</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Favorite Music</h2>
+                <div class="music-row">
+                    <div class="music-item" id="music-list">
+                        <a href="https://youtu.be/Uf67_f2wC_Y?si=C-e3grhMbIC0wdjo">
+                            <img src="008.jfif" alt="我知道你很難過">
+                        </a>
+                        <p>我知道你很難過(1999)</p>
+                    </div>
+                    <div class="music-item" id="music-list">
+                        <a href="https://youtu.be/TEVbbBa_NHg?si=iA85aLYOD0YVg3nU">
+                            <img src="002.jpg" alt="紅玫瑰">
+                        </a>
+                        <p>紅玫瑰(2007)</p>
+                    </div>
+                    <div class="music-item" id="music-list">
+                        <a href="https://youtu.be/ng5rE7s-AMU?si=uYnz3dqL6XLH-hCa">
+                            <img src="004.jpg" alt="無樂不作">
+                        </a>
+                        <p>無樂不作(2008)</p>
+                    </div>
+                    <div class="music-item" id="music-list">
+                        <a href="https://youtu.be/Hn8yhgxpzS4?si=QFdKpXJ3hO35Qpwd">
+                            <img src="007.jpg" alt="陪著我的時候想著他">
+                        </a>
+                        <p>陪著我的時候想著他(2011)</p>
+                    </div>
+
+                    <button id="add-music-btn">Add Music</button>
+                
+                </div>
+                <p class="note">Note: All of the songs above were launched before I started my elementary school live, they accompany my precious childhood.</p>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const nameElement = document.querySelector(".name strong");
+        const editBtn = document.getElementById("edit-btn");
+        let isEditing = false;
+        const addMusicBtn = document.getElementById("add-music-btn");
+        const musicList = document.getElementById("music-list");
+        const defaultImage = "defult.png";
+
+        editBtn.addEventListener("click", () => {
+            if (isEditing) {
+                // Save 狀態
+                const inputField = document.querySelector(".name input");
+                nameElement.textContent = inputField.value; // 更新名稱
+                editBtn.textContent = "Edit"; // 按鈕切換回 "Edit"
+            } else {
+                // Edit 狀態
+                const currentName = nameElement.textContent;
+                nameElement.innerHTML = `<input type="text" value="${currentName}" />`; // 替換為輸入框
+                editBtn.textContent = "Save"; // 按鈕切換為 "Save"
+            }
+            
+            isEditing = !isEditing; // 切換狀態
+            
+        } );
+
+        addMusicBtn.addEventListener("click", () => {
+        // 創建表單
+            const form = document.createElement("form");
+            form.innerHTML = `
+                <input type="text" id="music-name" placeholder="Music Name" required />
+                <input type="url" id="music-link" placeholder="Music Link" required />
+                <button type="submit">Submit</button>
+            `;
+            addMusicBtn.after(form);
+
+            // 表單提交邏輯
+            form.addEventListener("submit", (e) => {
+                e.preventDefault(); // 阻止表單默認提交行為
+                const name = document.getElementById("music-name").value;
+                const link = document.getElementById("music-link").value;
+
+                if (name && link) {
+                    // 創建新音樂項目
+                    const musicItem = document.createElement("music-row");
+                    musicItem.className = "music-list";
+                    musicItem.innerHTML = `
+                        <a href="${link}" target="_blank">
+                            <img src="default.png" alt="${name}" />
+                        </a>
+                        <p>${name}</p>
+                    `;
+                    musicList.appendChild(musicItem); // 加入音樂清單
+
+                    form.remove(); // 移除表單
+                } else {
+                    alert("請填寫完整資訊！");
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

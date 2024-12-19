@@ -1,0 +1,186 @@
+body {
+        background-color: #eeede1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+        .main-container {
+            display: flex;
+            max-width: 900px;
+            width: 80%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .left-panel {
+            width: 330px;
+            display: flex;
+            flex-direction: column;
+            background-color: #222;
+            color: white;
+            /*text-align: center;*/
+        }
+
+        .photo-panel {
+            background-image: url('001.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 330px;
+            width: 330px;
+        }
+
+        .name-container{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .name {
+            font-size: 32px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        #edit-btn {
+            font-size: 14px; /* 調整文字大小 */
+            padding: 3px 8px; /* 內邊距，讓按鈕更小巧 */
+            height: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            line-height: 1;
+            margin-top: 45px;
+        }
+
+        #edit-btn:hover {
+            background-color: #0056b3; /* 滑鼠懸停效果 */
+        }
+
+        #add-music-btn {
+            font-size: 14px; /* 調整文字大小 */
+            padding: 3px 8px; /* 內邊距，讓按鈕更小巧 */
+            height: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            line-height: 1;;
+        }
+
+        #add-music-btn:hover {
+            background-color: #0056b3; /* 滑鼠懸停效果 */
+        }
+
+        .text-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .text-content strong {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .text-content p:not(.contact) {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .contact {
+            font-size: 14px;
+        }
+
+        .text-content img {
+            width: 200px;
+            align-self: center;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .section ul li a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #music-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            /*margin-top: 20px;
+            gap: 15px;*/
+        }
+
+        .music-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .music-item {
+            text-align: center;
+            width: 22%;
+            margin-bottom: 20px; /* 項目間距 */
+        }
+
+        .music-row img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* 音樂名稱文字 */
+        .music-row p {
+            font-size: 14px;
+            color: #333;
+            margin: 0;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
